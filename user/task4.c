@@ -11,21 +11,18 @@ int main(int argc, char *argv[]) {
     int pid = fork();
 
     if (pid == 0) {
-        close(0);
-
-        dup(myPipe[0]);
-
-        close(myPipe[0]);
         close(myPipe[1]);
 
         char buff[100];
 
-        int n = read(0, buff, 100);
+        int n = read(myPipe[0], buff, 100);
 
         while (n != 0) {
             write(1, buff, n);
-            n = read(0, buff, 100);
+            n = read(myPipe[0], buff, 100);
         }
+
+        close(myPipe[0]);
     }
 
 
