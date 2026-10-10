@@ -49,8 +49,8 @@ uint64 sys_ps_listinfo(void) {
         totalProc++;
 
         // написано, что name можно без блокировки
-        for (int i = 0; i < 16; i++) {
-            procinfo.name[i] = (currentProc->name)[i];
+        for (int index = 0; index < 16; index++) {
+            procinfo.name[index] = (currentProc->name)[index];
         }
 
         procinfo.ppid = 0;
@@ -66,11 +66,6 @@ uint64 sys_ps_listinfo(void) {
         }
 
         release(&wait_lock);
-
-
-
-
-
 
         if (addedInList >= lim) {
             continue;
