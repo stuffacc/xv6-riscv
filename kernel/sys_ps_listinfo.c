@@ -50,7 +50,7 @@ uint64 sys_ps_listinfo(void) {
 
         // написано, что name можно без блокировки
         for (int index = 0; index < 16; index++) {
-            procinfo.name[index] = (currentProc->name)[index];
+            procinfo.name[index] = currentProc->name[index];
         }
 
         procinfo.ppid = 0;

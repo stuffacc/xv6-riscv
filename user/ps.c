@@ -16,7 +16,6 @@ int main(int argc, char** argv) {
         if (plist == 0) {
             return -1;
         }
-        
 
         procCount = ps_listinfo(plist, size);
 
